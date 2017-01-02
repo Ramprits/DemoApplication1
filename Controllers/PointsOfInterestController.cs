@@ -69,5 +69,33 @@ namespace DemoApplication1.Controllers
                     id = finalPointsOfInterest.Id
                }, finalPointsOfInterest);
           }
+
+          [HttpPut("{cityId}/PointsOfInterest/{Id}")]
+          public IActionResult PointsOfInterestForUpdate(int cityId, int Id,
+           [FromBody] PointsOfInterestForUpdateDto pointsOfInterest)
+          {
+               if (pointsOfInterest == null)
+               {
+                    return BadRequest();
+               }
+               var city = CitiesDataStore.Current.Citites.FirstOrDefault(pp => pp.Id == cityId);
+               if (city == null)
+               {
+                    return BadRequest();
+               }
+               if (pointsOfInterest.Description == pointsOfInterest.Name)
+               {
+                    ModelState.AddModelError("Description", "The provided Description should be diffrent from Name ");
+               }
+               var pointsOfInterestForUpdate = city.PointsOfInterest.FirstOrDefault(pp => pp.Id == Id);
+               if (pointsOfInterestForUpdate == null)
+               {
+                    return BadRequest();
+               }
+               pointsOfInterestForUpdate.Name = pointsOfInterest.Name;
+               pointsOfInterestForUpdate.Description = pointsOfInterest.Description;
+
+
+               return NoContent();
+          }
      }
-}
