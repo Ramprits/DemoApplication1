@@ -49,6 +49,10 @@ namespace DemoApplication1.Controllers
                {
                     return BadRequest();
                }
+               if (pointsOfInterest.Description == pointsOfInterest.Name)
+               {
+                    ModelState.AddModelError("Description", "The provided Description should be diffrent from Name ");
+               }
                var maxPointsOfInterest
                = CitiesDataStore.Current.Citites.SelectMany(pp => pp.PointsOfInterest).Max(pp => pp.Id);
                var finalPointsOfInterest = new PointsOfInterestDto()
@@ -63,7 +67,7 @@ namespace DemoApplication1.Controllers
                {
                     cityId = cityId,
                     id = finalPointsOfInterest.Id
-               },finalPointsOfInterest);
+               }, finalPointsOfInterest);
           }
      }
 }

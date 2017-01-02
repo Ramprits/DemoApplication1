@@ -10,12 +10,10 @@ namespace DemoApplication1.Models
           public int NumberOfPointsOfInterest
           {
                get
-
                {
                     return PointsOfInterest.Count;
                }
           }
-
           public ICollection<PointsOfInterestDto> PointsOfInterest { get; set; }
            = new List<PointsOfInterestDto>();
 
