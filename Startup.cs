@@ -92,7 +92,9 @@ namespace DemoApplication1
                app.UseIdentity();
 
                // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
-
+                AutoMapper.Mapper.Initialize(config =>{
+                    config.CreateMap<Entities.City,Models.CityWithOutPointsOfInterest>();
+                });
                app.UseMvc(routes =>
                {
                     routes.MapRoute(
