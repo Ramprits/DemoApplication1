@@ -98,4 +98,24 @@ namespace DemoApplication1.Controllers
 
                return NoContent();
           }
+
+
+          [HttpDelete("{cityId}/PointsOfInterest/{id}")]
+          public IActionResult DeletePointsOfInterest(int cityId, int Id)
+          {
+               var city = CitiesDataStore.Current.Citites.FirstOrDefault(pp => pp.Id == cityId);
+               if (city == null)
+               {
+                    return NotFound();
+               }
+               var DeletePointsOfInterest =
+               city.PointsOfInterest.FirstOrDefault(pp => pp.Id == Id);
+               if (DeletePointsOfInterest == null)
+               {
+                    return NotFound();
+               }
+               city.PointsOfInterest.Remove(DeletePointsOfInterest);
+               return NoContent();
+          }
      }
+}
