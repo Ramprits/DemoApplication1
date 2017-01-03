@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using DemoApplication1.Models;
+using DemoApplication1.Entities;
 
 namespace DemoApplication1.Data
 {
@@ -15,6 +16,9 @@ namespace DemoApplication1.Data
           {
           }
           public DbSet<Employee> Employees { get; set; }
+          public DbSet<City> Cities { get; set; }
+
+          public DbSet<PointsOfInterest> PointsOfInterests { get; set; }
           protected override void OnModelCreating(ModelBuilder builder)
           {
                base.OnModelCreating(builder);
