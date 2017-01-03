@@ -54,18 +54,19 @@ namespace DemoApplication1
                    .AddDefaultTokenProviders();
 
                services.AddMvc();
-            //    .AddJsonOptions(o =>
-            //    {
-            //         if (o.SerializerSettings.ContractResolver != null)
-            //         {
-            //              var castResolver = o.SerializerSettings.ContractResolver
-            //                                  as DefaultContractResolver;
-            //              castResolver.NamingStrategy = null;
-            //         }
+               //    .AddJsonOptions(o =>
+               //    {
+               //         if (o.SerializerSettings.ContractResolver != null)
+               //         {
+               //              var castResolver = o.SerializerSettings.ContractResolver
+               //                                  as DefaultContractResolver;
+               //              castResolver.NamingStrategy = null;
+               //         }
 
-            //    });
+               //    });
 
                // Add application services.
+               services.AddTransient<ICityInfoRepository, CityInfo>();
                services.AddTransient<IEmailSender, AuthMessageSender>();
                services.AddTransient<ISmsSender, AuthMessageSender>();
           }
