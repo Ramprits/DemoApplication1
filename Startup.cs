@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -12,11 +8,10 @@ using Microsoft.Extensions.Logging;
 using DemoApplication1.Data;
 using DemoApplication1.Models;
 using DemoApplication1.Services;
-using Newtonsoft.Json.Serialization;
 
 namespace DemoApplication1
 {
-     public class Startup
+    public class Startup
      {
           public Startup(IHostingEnvironment env)
           {

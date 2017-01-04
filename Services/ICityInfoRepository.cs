@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
 using DemoApplication1.Entities;
 
 namespace DemoApplication1.Services
 {
-     public interface ICityInfoRepository
+    public interface ICityInfoRepository
      {
           IEnumerable<City> GetCities();
 
